@@ -4,4 +4,4 @@
 ![License](https://img.shields.io/github/license/elPandaFriki/portfolio)
 ![Size](https://img.shields.io/github/repo-size/elPandaFriki/portfolio)
 
-Check it live [here](elpandafriki.github.io/portfolio)
+Check it live [here](https://elpandafriki.github.io/portfolio)
