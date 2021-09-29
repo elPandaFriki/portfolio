@@ -23,6 +23,7 @@ const Section = styled("div")((props) => {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    textAlign: 'center'
   };
 });
 
@@ -39,7 +40,6 @@ const RSSLink = styled(Link)((props) => {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    textAlign: "center",
     marginLeft: "10px",
     marginRight: "10px",
     cursor: "pointer",

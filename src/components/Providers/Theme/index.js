@@ -145,6 +145,247 @@ class Theme extends Component {
     );
   };
 
+  getTypography = () => {
+    const fontFamily = [
+      "-apple-system",
+      "BlinkMacSystemFont",
+      '"Segoe UI"',
+      "Roboto",
+      '"Helvetica Neue"',
+      "Arial",
+      "sans-serif",
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(",");
+    return {
+      htmlFontSize: 16,
+      fontFamily,
+      fontSize: 14,
+      fontWeightLight: 300,
+      fontWeightRegular: 400,
+      fontWeightMedium: 500,
+      fontWeightBold: 700,
+      h1: {
+        fontFamily,
+        fontWeight: 300,
+        fontSize: "6rem",
+        lineHeight: 1.167,
+        letterSpacing: "-0.01562em",
+      },
+      h2: {
+        fontFamily,
+        fontWeight: 300,
+        fontSize: "3.75rem",
+        lineHeight: 1.2,
+        letterSpacing: "-0.00833em",
+      },
+      h3: {
+        fontFamily,
+        fontWeight: 400,
+        fontSize: "3rem",
+        lineHeight: 1.167,
+        letterSpacing: "0em",
+      },
+      h4: {
+        fontFamily,
+        fontWeight: 400,
+        fontSize: "2.125rem",
+        lineHeight: 1.235,
+        letterSpacing: "0.00735em",
+      },
+      h5: {
+        fontFamily,
+        fontWeight: 400,
+        fontSize: "1.5rem",
+        lineHeight: 1.334,
+        letterSpacing: "0em",
+      },
+      h6: {
+        fontFamily,
+        fontWeight: 500,
+        fontSize: "1.25rem",
+        lineHeight: 1.6,
+        letterSpacing: "0.0075em",
+      },
+      subtitle1: {
+        fontFamily,
+        fontWeight: 400,
+        fontSize: "1rem",
+        lineHeight: 1.75,
+        letterSpacing: "0.00938em",
+      },
+      subtitle2: {
+        fontFamily,
+        fontWeight: 500,
+        fontSize: "0.875rem",
+        lineHeight: 1.57,
+        letterSpacing: "0.00714em",
+      },
+      body1: {
+        fontFamily,
+        fontWeight: 400,
+        fontSize: "1rem",
+        lineHeight: 1.5,
+        letterSpacing: "0.00938em",
+      },
+      body2: {
+        fontFamily,
+        fontWeight: 400,
+        fontSize: "0.875rem",
+        lineHeight: 1.43,
+        letterSpacing: "0.01071em",
+      },
+      button: {
+        fontFamily,
+        fontWeight: 500,
+        fontSize: "0.875rem",
+        lineHeight: 1.75,
+        letterSpacing: "0.02857em",
+        textTransform: "uppercase",
+      },
+      caption: {
+        fontFamily,
+        fontWeight: 400,
+        fontSize: "0.75rem",
+        lineHeight: 1.66,
+        letterSpacing: "0.03333em",
+      },
+      overline: {
+        fontFamily,
+        fontWeight: 400,
+        fontSize: "0.75rem",
+        lineHeight: 2.66,
+        letterSpacing: "0.08333em",
+        textTransform: "uppercase",
+      },
+    };
+  };
+
+  addResponsiveness = (theme) => {
+    /**
+     * BREAKPOINT: 'xs', 'mobile'
+     * JioPhone 2
+     */
+    for (const breakpoint of ["xs", "mobile", 240]) {
+      theme.typography.h1[theme.breakpoints.up(breakpoint)] = {
+        fontSize: "2rem",
+      };
+      theme.typography.h4[theme.breakpoints.up(breakpoint)] = {
+        fontSize: "0.7rem",
+      };
+    }
+    /**
+     * Galaxy Fold
+     * iPhone 5/SE
+     * Nokia Lumia 520
+     * iPhone 4
+     * Moto G4
+     * Galaxy S5
+     * Blackberry Z30
+     * Galaxy Note 3
+     * Galaxy Note II
+     * Galaxy S III
+     * Microsoft Lumia 950
+     * Nexus 5
+     */
+    for (const breakpoint of [280, 320, 360]) {
+      theme.typography.h1[theme.breakpoints.up(breakpoint)] = {
+        fontSize: "2.5rem",
+      };
+      theme.typography.h4[theme.breakpoints.up(breakpoint)] = {
+        fontSize: "1rem",
+      };
+    }
+    /**
+     * iPhone 6/7/8
+     * iPhone X
+     * LG Optimus L70
+     * Nexus 4
+     */
+    for (const breakpoint of [375, 384]) {
+      theme.typography.h1[theme.breakpoints.up(breakpoint)] = {
+        fontSize: "3rem",
+      };
+      theme.typography.h4[theme.breakpoints.up(375)] = {
+        fontSize: "1.3rem",
+      };
+    }
+    /**
+     * Pixel 2
+     * Pixel 2 XL
+     * Nexus 5X
+     * Nexus 6
+     * Nexus 6P
+     * iPhone 6/7/8 Plus
+     * Nokia N9
+     * Surface Duo
+     */
+    for (const breakpoint of [411, 412, 414, 540]) {
+      theme.typography.h1[theme.breakpoints.up(breakpoint)] = {
+        fontSize: "3.5rem",
+      };
+      theme.typography.h4[theme.breakpoints.up(breakpoint)] = {
+        fontSize: "1.3rem",
+      };
+    }
+    /**
+     * BREAKPOINT: 'sm', 'tablet'
+     * Blackberry Playbook
+     * Nexus 7
+     * Microsoft Lumia 550
+     */
+    for (const breakpoint of [600, 640, "tablet"]) {
+      theme.typography.h1[theme.breakpoints.up(breakpoint)] = {
+        fontSize: "5rem",
+      };
+      theme.typography.h4[theme.breakpoints.up(breakpoint)] = {
+        fontSize: "2rem",
+      };
+    }
+    /**
+     * BREAKPOINT: 'md'
+     * iPad
+     * iPad Mini
+     * Kindle Fire HDX
+     * Nexus 10
+     */
+    for (const breakpoint of [768, 800, "md"]) {
+      theme.typography.h1[theme.breakpoints.up(breakpoint)] = {
+        fontSize: "5rem",
+      };
+      theme.typography.h4[theme.breakpoints.up(breakpoint)] = {
+        fontSize: "2.5rem",
+      };
+    }
+    /**
+     * BREAKPOINT: 'laptop'
+     * iPad Pro
+     * Nest Hub
+     */
+    for (const breakpoint of [1024, "laptop"]) {
+      theme.typography.h1[theme.breakpoints.up(breakpoint)] = {
+        fontSize: "7rem",
+      };
+      theme.typography.h4[theme.breakpoints.up(breakpoint)] = {
+        fontSize: "3.5rem",
+      };
+    }
+    /**
+     * BREAKPOINT: 'lg', 'desktop', 'xl'
+     * Nest Hub Max
+     */
+    for (const breakpoint of ["lg", "desktop", 1280, "xl"]) {
+      theme.typography.h1[theme.breakpoints.up(breakpoint)] = {
+        fontSize: "6rem",
+      };
+      theme.typography.h4[theme.breakpoints.up(breakpoint)] = {
+        fontSize: "2rem",
+      };
+    }
+    return theme;
+  };
+
   getTheme = () => {
     const { themeContext } = this.props;
     const { mode } = themeContext;
@@ -161,63 +402,49 @@ class Theme extends Component {
     };
     const palette = this.getPalette();
     return responsiveFontSizes(
-      createTheme({
-        mode,
-        palette,
-        typography: {
-          diplay: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontFamily: [
-            "-apple-system",
-            "BlinkMacSystemFont",
-            '"Segoe UI"',
-            "Roboto",
-            '"Helvetica Neue"',
-            "Arial",
-            "sans-serif",
-            '"Apple Color Emoji"',
-            '"Segoe UI Emoji"',
-            '"Segoe UI Symbol"',
-          ].join(","),
-        },
-        spacing: (factor) => {
-          return `${0.25 * factor}rem`;
-        },
-        breakpoints: {
-          keys: Object.keys(breakpoints),
-          values: breakpoints,
-        },
-        transitions: {
-          duration: {
-            shortest: 150,
-            leavingScreen: 195,
-            shorter: 200,
-            enteringScreen: 225,
-            short: 250,
-            standard: 300,
-            complex: 375,
+      this.addResponsiveness(
+        createTheme({
+          mode,
+          palette,
+          typography: this.getTypography(),
+          spacing: (factor) => {
+            return `${0.25 * factor}rem`;
           },
-          easing: {
-            easeInOut: "cubic-bezier(0.4, 0, 0.2, 1)",
-            easeOut: "cubic-bezier(0.0, 0, 0.2, 1)",
-            easeIn: "cubic-bezier(0.4, 0, 1, 1)",
-            sharp: "cubic-bezier(0.4, 0, 0.6, 1)",
+          breakpoints: {
+            keys: Object.keys(breakpoints),
+            values: breakpoints,
           },
-        },
-        components: {
-          MuiCheckbox: {
-            styleOverrides: {
-              root: {
-                color: palette.primary.contrastText,
-                "&.Mui-checked": {
+          transitions: {
+            duration: {
+              shortest: 150,
+              leavingScreen: 195,
+              shorter: 200,
+              enteringScreen: 225,
+              short: 250,
+              standard: 300,
+              complex: 375,
+            },
+            easing: {
+              easeInOut: "cubic-bezier(0.4, 0, 0.2, 1)",
+              easeOut: "cubic-bezier(0.0, 0, 0.2, 1)",
+              easeIn: "cubic-bezier(0.4, 0, 1, 1)",
+              sharp: "cubic-bezier(0.4, 0, 0.6, 1)",
+            },
+          },
+          components: {
+            MuiCheckbox: {
+              styleOverrides: {
+                root: {
                   color: palette.primary.contrastText,
+                  "&.Mui-checked": {
+                    color: palette.primary.contrastText,
+                  },
                 },
               },
             },
           },
-        },
-      })
+        })
+      )
     );
   };
 
