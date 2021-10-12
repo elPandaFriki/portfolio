@@ -11,7 +11,7 @@ import { ThemeProvider } from "./components/Providers";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider>
+    <ThemeProvider isMain={true}>
       <App />
     </ThemeProvider>
   </React.StrictMode>,

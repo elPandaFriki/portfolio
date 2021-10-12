@@ -1,11 +1,26 @@
 body {
+  position: absolute;
+  top: 0;
+  left: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+}
+body[theme="dark"] {
+  background-color: rgba(50, 50, 50);
+}
+body[theme="light"] {
+  background-color: rgba(200, 200, 200);
+}
+
+#root {
+  height: 100%;
+  width: 100%;
 }
 
 code {
@@ -17,4 +32,28 @@ code {
   margin: 0;
   padding: 0;
   user-select: none;
+  scroll-behavior: smooth;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-button {
+  display: none;
+}
+
+*::-webkit-scrollbar-corner {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+*::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+body[theme="dark"]::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+body[theme="light"]::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.4);
 }

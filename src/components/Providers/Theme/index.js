@@ -4,11 +4,6 @@ import React, { Component } from "react";
 import { ThemeContext, ThemeController } from "../../../contexts";
 
 class Theme extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   getPalette = () => {
     const { themeContext } = this.props;
     const { mode } = themeContext;
@@ -141,7 +136,8 @@ class Theme extends Component {
               focusOpacity: 0.12,
               activatedOpacity: 0.24,
             },
-          }
+          },
+      this.props.palette
     );
   };
 
@@ -387,7 +383,7 @@ class Theme extends Component {
   };
 
   getTheme = () => {
-    const { themeContext } = this.props;
+    const { themeContext, isMain = false } = this.props;
     const { mode } = themeContext;
     const breakpoints = {
       xs: 0,
@@ -401,7 +397,7 @@ class Theme extends Component {
       xl: 1536,
     };
     const palette = this.getPalette();
-    return responsiveFontSizes(
+    const theme = responsiveFontSizes(
       this.addResponsiveness(
         createTheme({
           mode,
@@ -432,6 +428,14 @@ class Theme extends Component {
             },
           },
           components: {
+            MuiSvgIcon: {
+              styleOverrides: {
+                root: {
+                  stroke: palette.primary.backgroundColor + "99",
+                  strokeWidth: 0.5,
+                },
+              },
+            },
             MuiCheckbox: {
               styleOverrides: {
                 root: {
@@ -446,6 +450,8 @@ class Theme extends Component {
         })
       )
     );
+    if (isMain) document.body.setAttribute('theme', theme.mode);
+    return theme;
   };
 
   render() {
@@ -456,12 +462,11 @@ class Theme extends Component {
 
 export default class ThemeConsumer extends Component {
   render() {
-    const { children } = this.props;
     return (
       <ThemeController>
         <ThemeContext.Consumer>
           {(themeContext) => {
-            return <Theme themeContext={themeContext}>{children}</Theme>;
+            return <Theme {...this.props} themeContext={themeContext} />;
           }}
         </ThemeContext.Consumer>
       </ThemeController>

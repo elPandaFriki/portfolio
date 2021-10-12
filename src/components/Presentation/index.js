@@ -23,7 +23,7 @@ const Section = styled("div")((props) => {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    textAlign: 'center'
+    textAlign: "center",
   };
 });
 
@@ -56,22 +56,24 @@ export default class Presentation extends Component {
           <Typography variant={"h1"}>Hello, i'm David!</Typography>
         </Section>
         <Section>
-          {["Software Engineer", "Full Stack Developer", "Open Source Enthusiast"].map(
-            (o, index, arr) => {
-              return (
-                <React.Fragment key={index}>
-                  <Typography variant={"h4"}>{o}</Typography>
-                  {index < arr.length - 1 && (
-                    <TextDivider
-                      orientation="vertical"
-                      flexItem
-                      variant="middle"
-                    />
-                  )}
-                </React.Fragment>
-              );
-            }
-          )}
+          {[
+            "Software Engineer",
+            "Full Stack Developer",
+            "Open Source Enthusiast",
+          ].map((o, index, arr) => {
+            return (
+              <React.Fragment key={index}>
+                <Typography variant={"h4"}>{o}</Typography>
+                {index < arr.length - 1 && (
+                  <TextDivider
+                    orientation="vertical"
+                    flexItem
+                    variant="middle"
+                  />
+                )}
+              </React.Fragment>
+            );
+          })}
         </Section>
         <Section>
           {[
