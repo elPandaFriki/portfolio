@@ -32,7 +32,7 @@
     "build": "parcel build",
     "test": "",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "eslintConfig": {
     "extends": [
