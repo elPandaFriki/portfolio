@@ -1,19 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import "./index.scss";
 import App from "./components/App";
-import "@fontsource/roboto/300.css";
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
-import "@fontsource/roboto/700.css";
-import { ThemeProvider } from "./components/Providers";
+import { store } from "./redux";
+import { Provider } from "react-redux";
 
-const rootElement: JSX.Element = (
+ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider isMain={true}>
+    <Provider store={store}>
       <App />
-    </ThemeProvider>
-  </React.StrictMode>
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
-
-ReactDOM.render(rootElement, document.getElementById("root"));

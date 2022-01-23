@@ -5,5 +5,3 @@
 ![Size](https://img.shields.io/github/repo-size/elPandaFriki/portfolio)
 
 Check it live [here](https://elpandafriki.github.io/portfolio)
-
-Thanks for checking me :D
