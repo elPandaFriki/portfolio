@@ -1,0 +1,122 @@
+@mixin queries($key, $map) {
+  #{$key}: map-get($map, default);
+  @media (min-width: 280px) {
+    #{$key}: map-get($map, 280px);
+  }
+  @media (min-width: 360px) {
+    #{$key}: map-get($map, 360px);
+  }
+  @media (min-width: 393px) {
+    #{$key}: map-get($map, 393px);
+  }
+  @media (min-width: 540px) {
+    #{$key}: map-get($map, 540px);
+  }
+  @media (min-width: 768px) {
+    #{$key}: map-get($map, 768px);
+  }
+  @media (min-width: 820px) {
+    #{$key}: map-get($map, 820px);
+  }
+  @media (min-width: 912px) {
+    #{$key}: map-get($map, 912px);
+  }
+  @media (min-width: 1024px) {
+    #{$key}: map-get($map, 1024px);
+  }
+  @media (min-width: 1280px) {
+    #{$key}: map-get($map, 1280px);
+  }
+  @media (min-width: 1900px) {
+    #{$key}: map-get($map, 1900px);
+  }
+}
+
+@mixin vunit {
+  --unit: 1vw;
+  @media (orientation: portrait) {
+    --unit: 1vh;
+  }
+}
+
+@mixin position {
+  @include vunit;
+  position: absolute;
+  @for $i from 0 through 100 {
+    &[data-radius="#{$i}"] {
+      $radius: calc(#{$i} * var(--unit));
+      left: calc(50% - #{$radius});
+      top: calc(50% - #{$radius});
+      width: calc(2 * #{$radius});
+      height: calc(2 * #{$radius});
+    }
+  }
+}
+
+@mixin rotation($name) {
+  @include vunit;
+  --radius: var(--unit);
+  --start: 270deg;
+  @for $i from 0 through 100 {
+    &[data-radius="#{$i}"] {
+      --radius: calc(#{$i} * var(--unit));
+    }
+  }
+  // keep in mind rotation in CSS is clockwise
+  --a1: rotate(var(--start));
+  --a2: rotate(calc(-1 * var(--start)));
+  --b1: rotate(calc(360deg + var(--start)));
+  --b2: rotate(calc(-1 * (360deg +var(--start))));
+  &[data-direction="reverse"] {
+    --a1: rotate(calc(-1 * var(--start)));
+    --a2: rotate(var(--start));
+    --b1: rotate(calc(-1 * (360deg +var(--start))));
+    --b2: rotate(calc(360deg + var(--start)));
+  }
+  @-webkit-keyframes #{$name} {
+    from {
+      -webkit-transform: var(--a1) translateX(var(--radius)) var(--a2);
+    }
+    to {
+      -webkit-transform: var(--b1) translateX(var(--radius)) var(--b2);
+    }
+  }
+  @-moz-keyframes #{$name} {
+    from {
+      -moz-transform: var(--a1) translateX(var(--radius)) var(--a2);
+    }
+    to {
+      -moz-transform: var(--b1) translateX(var(--radius)) var(--b2);
+    }
+  }
+  @-o-keyframes #{$name} {
+    from {
+      -o-transform: var(--a1) translateX(var(--radius)) var(--a2);
+    }
+    to {
+      -o-transform: var(--b1) translateX(var(--radius)) var(--b2);
+    }
+  }
+  @keyframes #{$name} {
+    from {
+      transform: var(--a1) translateX(var(--radius)) var(--a2);
+    }
+    to {
+      transform: var(--b1) translateX(var(--radius)) var(--b2);
+    }
+  }
+}
+
+@mixin animation($name) {
+  --time: 1s;
+  @for $i from 0 to 100 {
+    &[data-speed="#{$i}"] {
+      --time: calc(#{$i} * 1s);
+    }
+  }
+  $animation: #{$name} var(--time) linear infinite;
+  -webkit-animation: #{$animation};
+  -moz-animation: #{$animation};
+  -o-animation: #{$animation};
+  animation: #{$animation};
+}
