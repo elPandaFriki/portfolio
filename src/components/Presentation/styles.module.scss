@@ -72,8 +72,6 @@
       1900px: 90px,
     )
   );
-  --position-top: 0px;
-  --position-left: 0px;
   --center: calc(var(--size) / 2);
   transform-origin: var(--center) var(--center);
   left: calc(50% - var(--center));

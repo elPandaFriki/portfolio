@@ -1,6 +1,6 @@
-import App from "./Component";
 import { connect } from "../../HOCs";
-import { MapDispatch, MapState, OwnProps } from "./types";
+import Component from "./Component";
+import { OwnProps, MapState, MapDispatch } from "./types";
 
 export default connect<OwnProps, MapState, MapDispatch>(
   (state, ownProps) => {
@@ -9,4 +9,4 @@ export default connect<OwnProps, MapState, MapDispatch>(
   (dispatch, ownProps) => {
     return {};
   }
-)(App);
+)(Component);
