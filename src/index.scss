@@ -11,7 +11,9 @@
 }
 
 body {
-  overflow: hidden;
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
   width: 100vw;
   height: 100vh;
   background-color: rgb(50, 50, 50);

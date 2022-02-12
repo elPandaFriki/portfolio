@@ -1,0 +1,87 @@
+@import "../../scss/index.scss";
+
+.root {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  position: relative;
+  z-index: 2;
+  font-weight: bolder;
+  text-shadow: 0.5rem 1rem rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  @include queries(
+    font-size,
+    (
+      default: 5rem,
+      280px: 2rem,
+      360px: 2.5rem,
+      393px: 2.5rem,
+      540px: 2.5rem,
+      768px: 3rem,
+      820px: 3rem,
+      912px: 4rem,
+      1024px: 4rem,
+      1280px: 4.5rem,
+      1900px: 5rem,
+    )
+  );
+}
+
+.radius {
+  @include vunit;
+  @include position;
+  border: 1px solid white;
+  --size: calc(100 * var(--unit));
+  border-radius: calc(var(--size) / 2);
+}
+
+.message {
+  @include rotation(orbit);
+  @include animation(orbit);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  border: 1px solid white;
+  border-radius: 50%;
+  background-color: rgb(50, 50, 50);
+  @include queries(
+    --size,
+    (
+      default: 100px,
+      280px: 25px,
+      360px: 35px,
+      393px: 40px,
+      540px: 35px,
+      768px: 50px,
+      820px: 55px,
+      912px: 60px,
+      1024px: 50px,
+      1280px: 60px,
+      1900px: 90px,
+    )
+  );
+  --position-top: 0px;
+  --position-left: 0px;
+  --center: calc(var(--size) / 2);
+  transform-origin: var(--center) var(--center);
+  left: calc(50% - var(--center));
+  top: calc(50% - var(--center));
+  width: var(--size);
+  height: var(--size);
+}
+
+.icon {
+  font-size: 5rem;
+}
