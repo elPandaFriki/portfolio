@@ -1,7 +1,10 @@
-![CI/CD](https://github.com/elPandaFriki/portfolio/workflows/CI/CD/badge.svg)
-[![codecov](https://codecov.io/gh/elPandaFriki/portfolio/branch/master/graph/badge.svg)](https://codecov.io/gh/elPandaFriki/portfolio)
-[![Codecov](https://img.shields.io/codecov/c/github/elPandaFriki/portfolio)](https://codecov.io/gh/elPandaFriki/portfolio)
-![License](https://img.shields.io/github/license/elPandaFriki/portfolio)
-![Size](https://img.shields.io/github/repo-size/elPandaFriki/portfolio)
+# PORTFOLIO
 
 Check it live [here](https://elpandafriki.github.io/portfolio)
+
+### TAGS
+
+[![CI/CD](https://github.com/elPandaFriki/portfolio/actions/workflows/node.js.yml/badge.svg)](https://github.com/elPandaFriki/portfolio/actions/workflows/node.js.yml)
+[![CodeQL](https://github.com/elPandaFriki/portfolio/actions/workflows/codeql.yml/badge.svg)](https://github.com/elPandaFriki/portfolio/actions/workflows/codeql.yml)
+[![Deploy](https://github.com/elPandaFriki/portfolio/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/elPandaFriki/portfolio/actions/workflows/pages/pages-build-deployment)
+
