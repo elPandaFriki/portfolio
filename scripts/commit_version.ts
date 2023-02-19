@@ -11,10 +11,8 @@ function main() {
         })
     );
     execSync('git add .');
-    /*
     execSync(`git commit -m "${packageJson.version}"`);
     execSync('git push');
-    */
     output('\n');
     output(`UPDATED VERSION TO ${packageJson.version}`, {
         color: Color.GREEN
