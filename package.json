@@ -27,14 +27,16 @@
         "typescript": "^4.9.5"
     },
     "scripts": {
-        "update-version": "ts-node --project ./scripts/tsconfig.json scripts/update_version.ts && prettier --write -c package.json",
+        "exec-update-version": "ts-node --project ./scripts/tsconfig.json scripts/update_version.ts",
+        "exec-commit-version": "ts-node --project ./scripts/tsconfig.json scripts/commit_version.ts",
+        "update-version": "npm run exec-update-version && prettier --loglevel silent --write -c package.json && npm run exec-commit-version",
         "analyze": "source-map-explorer 'build/static/js/*.js'",
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "deploy": "gh-pages -d build",
-        "format": "prettier --write -c src && prettier --write -c scripts && prettier --write -c public"
+        "format": " ts-node  --project ./scripts/tsconfig.json scripts/format.ts"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -51,5 +53,5 @@
             "last 1 safari version"
         ]
     },
-    "date": "2023-02-19 19:50 GTM+1"
+    "date": "2023-02-19 20:11 GTM+1"
 }
