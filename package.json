@@ -1,6 +1,6 @@
 {
     "name": "portfolio",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "homepage": "https://elPandaFriki.github.io/portfolio",
     "private": true,
     "dependencies": {
@@ -51,5 +51,5 @@
             "last 1 safari version"
         ]
     },
-    "date": "2023-02-19 19:49 GTM+1"
+    "date": "2023-02-19 19:50 GTM+1"
 }
