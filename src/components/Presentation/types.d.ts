@@ -19,8 +19,3 @@ export interface Icon {
 export interface State {
     icons: Array<Icon>;
 }
-
-export interface IconElement {
-    name: string;
-    Icon: JSX.Element;
-}
