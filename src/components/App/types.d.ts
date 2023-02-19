@@ -1,34 +1,26 @@
-import { IconType } from "react-icons/lib";
-import { Example } from "../../redux/types";
-
-export interface MapState {
-  //
-}
+import { IconType } from 'react-icons/lib';
+import { connector } from '.';
 
 export interface OwnProps {
-  //
+    //
 }
 
-export interface MapDispatch {
-  //
-}
-
-export interface Props extends MapState, MapDispatch, OwnProps {
-  //
+export interface Props extends OwnProps, ConnectedProps<typeof connector> {
+    //
 }
 
 export interface Icon {
-  radius: number;
-  Icon: IconType;
-  name: string;
-  category: string;
+    radius: number;
+    Icon: IconType;
+    name: string;
+    category: string;
 }
 
 export interface State {
-  //
+    //
 }
 
 export interface IconElement {
-  name: string;
-  Icon: IconType;
+    name: string;
+    Icon: IconType;
 }

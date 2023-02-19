@@ -1,3 +1,1 @@
-import deepCompare from "./deepCompare";
-
-export { deepCompare };
+export * from './deepCompare';

@@ -1,12 +1,14 @@
-import { connect } from "../../HOCs";
-import Component from "./Component";
-import { OwnProps, MapState, MapDispatch } from "./types";
+import { connect } from 'react-redux';
+import Component from './Component';
+import { OwnProps } from './types';
 
-export default connect<OwnProps, MapState, MapDispatch>(
-  (state, ownProps) => {
-    return {};
-  },
-  (dispatch, ownProps) => {
-    return {};
-  }
-)(Component);
+export const connector = connect(
+    (store: ReduxStore, ownProps: OwnProps) => {
+        return {};
+    },
+    (dispatch: ReduxDispatch, ownProps: OwnProps) => {
+        return {};
+    }
+);
+
+export default connector(Component);

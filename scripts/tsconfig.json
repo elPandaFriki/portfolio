@@ -2,6 +2,7 @@
     "compilerOptions": {
         "target": "es5",
         "lib": ["dom", "dom.iterable", "esnext"],
+        "pretty": true,
         "allowJs": true,
         "skipLibCheck": true,
         "esModuleInterop": true,
@@ -9,12 +10,12 @@
         "strict": true,
         "forceConsistentCasingInFileNames": true,
         "noFallthroughCasesInSwitch": true,
-        "module": "esnext",
-        "moduleResolution": "node",
+        "module": "NodeNext",
+        "moduleResolution": "Node",
         "resolveJsonModule": true,
         "isolatedModules": true,
         "noEmit": true,
-        "jsx": "react-jsx"
-    },
-    "include": ["src"]
+        "jsx": "react-jsx",
+        "downlevelIteration": true
+    }
 }

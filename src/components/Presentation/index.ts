@@ -1,12 +1,23 @@
-import App from "./Component";
-import { connect } from "../../HOCs";
-import { MapDispatch, MapState, OwnProps } from "./types";
+import Component from './Component';
+import { connect } from 'react-redux';
+import { OwnProps } from './types';
 
-export default connect<OwnProps, MapState, MapDispatch>(
-  (state, ownProps) => {
-    return {};
-  },
-  (dispatch, ownProps) => {
-    return {};
-  }
-)(App);
+export const connector = connect(
+    (state, ownProps: OwnProps) => {
+        return {};
+    },
+    (dispatch, ownProps) => {
+        return {};
+    }
+);
+
+export enum Categories {
+    LANGUAGES = 0,
+    FRONTEND = 1,
+    BACKEND = 2,
+    DATABASES = 3,
+    DEPLOYMENT = 4,
+    COMMUNICATIONS = 5
+}
+
+export default connector(Component);

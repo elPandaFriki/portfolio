@@ -1,6 +1,3 @@
-import { createAction } from "@reduxjs/toolkit";
-import { UpdateExample } from "../types";
+import { createAction } from '@reduxjs/toolkit';
 
-const UPDATE_EXAMPLE = createAction<UpdateExample>("updateExample");
-
-export { UPDATE_EXAMPLE };
+export const UPDATE_EXAMPLE = createAction<Redux.ActionPayload.UpdateExample>('UPDATE_EXAMPLE');

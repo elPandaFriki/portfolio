@@ -1,11 +1,9 @@
+import { ConnectedProps } from 'react-redux';
+
 export interface OwnProps {
-  //
+    //
 }
 
-export interface MapState {
-  //
-}
-
-export interface MapDispatch {
-  //
+export interface Props extends OwnProps, ConnectedProps<typeof connector> {
+    //
 }
