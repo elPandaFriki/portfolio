@@ -1,0 +1,27 @@
+.root {
+    display: relative;
+    top: 0;
+    left: 0;
+}
+
+.children {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.version {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.message {
+    padding: 0.5rem;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    border-radius: 0.5rem 0 0 0;
+    color: white;
+    background-color: black;
+}

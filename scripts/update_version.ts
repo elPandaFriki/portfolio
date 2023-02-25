@@ -11,12 +11,19 @@ function padStart(text: number | string, length: number, chars: string): string 
 }
 
 function getUniversalString(): string {
-    const date = arguments[0] != null ? new Date(arguments[0]) : new Date();
-    return `${date.getFullYear()}-${padStart(date.getMonth() + 1, 2, '0')}-${padStart(
-        date.getDate(),
-        2,
-        '0'
-    )} ${padStart(date.getHours(), 2, '0')}:${padStart(date.getMinutes(), 2, '0')}`;
+    const date = new Date();
+    const getDate = () => {
+        const yearString = `${date.getUTCFullYear()}`;
+        const monthString = `${padStart(date.getUTCMonth() + 1, 2, '0')}`;
+        const dayString = `${padStart(date.getUTCDate(), 2, '0')}`;
+        return `${yearString}-${monthString}-${dayString}`;
+    };
+    const getTime = () => {
+        const hourString = `${padStart(date.getUTCHours(), 2, '0')}`;
+        const minutesString = `${padStart(date.getUTCMinutes(), 2, '0')}`;
+        return `${hourString}:${minutesString}`;
+    };
+    return `${getDate()} ${getTime()}`;
 }
 
 async function main() {
@@ -26,7 +33,7 @@ async function main() {
         })
     );
     const updateDate = () => {
-        packageJson.date = `${getUniversalString()} GTM+1`;
+        packageJson.date = `${getUniversalString()}`;
     };
     const updateVersion = () => {
         const updateMinor = process.env.npm_config_minor === 'true' || false;
