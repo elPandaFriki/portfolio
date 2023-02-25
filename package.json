@@ -1,7 +1,7 @@
 {
     "name": "portfolio",
-    "version": "3.0.3",
-    "date": "2023-02-19 20:36 GTM+1",
+    "version": "3.0.4",
+    "date": "2023-02-25 22:15 GTM+1",
     "homepage": "https://elPandaFriki.github.io/portfolio",
     "private": true,
     "dependencies": {
