@@ -1,53 +1,42 @@
-name: CI/CD
-
+name: Revision & Deploy
 on:
     push:
         branches: [master]
     pull_request:
         branches: [master]
-
 jobs:
     build:
         runs-on: ubuntu-latest
-
         strategy:
             matrix:
                 node-version: [16.x]
-
         steps:
-            - name: Checkout repository
+            - name: Set repository to latest commit
               uses: actions/checkout@v2
-
-            - name: Set up Node.js ${{ matrix.node-version }}
+            - name: Set up Node.js environment to version ${{ matrix.node-version }}
               uses: actions/setup-node@v1
               with:
                   node-version: ${{ matrix.node-version }}
-
-            - name: Cache dependencies
+            - name: Get dependencies from Cache
               uses: actions/cache@v2
               with:
                   path: |
                       **/node_modules
                   key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-
             - name: Install dependencies
               run: npm install
-
-            # - name: Run the tests and generate coverage report
+            #- name: Run tests and generate coverage report
             #  run: npm test -- --coverage
-
-            # - name: Upload coverage to Codecov
-            #   uses: codecov/codecov-action@v1
-
-            - name: Build
+            #- name: Upload coverage to Codecov
+            #  uses: codecov/codecov-action@v1
+            - name: Build React app
               run: npm run build
-
-            - name: Deploy
+            - name: Deploy to GitHub Pages
               run: |
                   git config --global user.name ${user_name}
                   git config --global user.email ${user_email}
                   git remote set-url origin https://${github_token}@github.com/${repository}
-                  npm run deploy
+                  npm run deploy_to_github_pages
               env:
                   user_name: 'github-actions[bot]'
                   user_email: 'github-actions[bot]@users.noreply.github.com'
