@@ -1,18 +1,22 @@
+import { store } from '../redux';
+
 export declare global {
     namespace Redux {
-        namespace ActionPayload {
+        type Store = ReturnType<typeof store.getState>;
+        type Dispatch = typeof store.dispatch;
+        namespace Action {
             interface UpdateExample {
                 value: number;
             }
         }
 
-        namespace ThunkPayload {
+        namespace Thunk {
             type UpdateExample = {
                 value: number;
             };
         }
 
-        namespace InitialState {
+        namespace Reducer {
             interface Example {
                 value: number;
             }

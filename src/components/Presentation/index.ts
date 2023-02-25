@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { OwnProps } from './types';
 
 export const connector = connect(
-    (state, ownProps: OwnProps) => {
+    (state: Redux.Store, ownProps: OwnProps) => {
         return {};
     },
-    (dispatch, ownProps) => {
+    (dispatch: Redux.Dispatch, ownProps: OwnProps) => {
         return {};
     }
 );

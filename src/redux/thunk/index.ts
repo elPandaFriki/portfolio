@@ -2,9 +2,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const updateExample = createAsyncThunk<
     void,
-    Redux.ThunkPayload.UpdateExample,
+    Redux.Thunk.UpdateExample,
     {
-        state: ReduxStore;
+        state: Redux.Store;
     }
 >('updateExample', async (payload, thunkApi) => {
     //

@@ -1,7 +1,7 @@
 import { combineReducers, createReducer } from '@reduxjs/toolkit';
 import { UPDATE_EXAMPLE } from '../actions';
 
-const initialState: Redux.InitialState.Example = {
+const initialState: Redux.Reducer.Example = {
     value: 0
 };
 

@@ -1,6 +1,8 @@
+import { ReactNode } from "react";
+
 export interface State {
     name: string;
-    Element: JSX.Element | null;
+    Element: ReactNode;
 }
 
 export interface Props {
@@ -10,5 +12,5 @@ export interface Props {
 
 export interface CarrouselElement {
     name: string;
-    Element: JSX.Element;
+    Element: ReactNode;
 }
