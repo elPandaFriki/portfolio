@@ -13,14 +13,61 @@ function padStart(text: number | string, length: number, chars: string): string 
 function getUniversalString(): string {
     const date = new Date();
     const getDate = () => {
-        const yearString = `${date.getUTCFullYear()}`;
-        const monthString = `${padStart(date.getUTCMonth() + 1, 2, '0')}`;
-        const dayString = `${padStart(date.getUTCDate(), 2, '0')}`;
-        return `${yearString}-${monthString}-${dayString}`;
+        const year = date.getUTCFullYear();
+        const month = date.getUTCMonth();
+        const day = date.getUTCDate();
+        const yearString = padStart(year, 4, '0');
+        // const monthString = `${padStart(month + 1, 2, '0')}`;
+        const getMonthName = () => {
+            switch (month) {
+                case 0: {
+                    return 'January';
+                }
+                case 1: {
+                    return 'February';
+                }
+                case 2: {
+                    return 'March';
+                }
+                case 3: {
+                    return 'April';
+                }
+                case 4: {
+                    return 'May';
+                }
+                case 5: {
+                    return 'June';
+                }
+                case 6: {
+                    return 'July';
+                }
+                case 7: {
+                    return 'August';
+                }
+                case 8: {
+                    return 'September';
+                }
+                case 9: {
+                    return 'October';
+                }
+                case 10: {
+                    return 'November';
+                }
+                case 11: {
+                    return 'December';
+                }
+            }
+            return '';
+        };
+        const monthString = getMonthName().substring(0, 3);
+        const dayString = padStart(day, 2, '0');
+        return `${dayString} ${monthString} ${yearString}`;
     };
     const getTime = () => {
-        const hourString = `${padStart(date.getUTCHours(), 2, '0')}`;
-        const minutesString = `${padStart(date.getUTCMinutes(), 2, '0')}`;
+        const hours = date.getUTCHours();
+        const minutes = date.getUTCMinutes();
+        const hourString = padStart(hours, 2, '0');
+        const minutesString = padStart(minutes, 2, '0');
         return `${hourString}:${minutesString}`;
     };
     return `${getDate()} ${getTime()}`;
