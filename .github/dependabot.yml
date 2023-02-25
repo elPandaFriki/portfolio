@@ -7,3 +7,12 @@ updates:
       directory: '/' # Location of package manifests
       schedule:
           interval: 'daily'
+      commit-message:
+          prefix: 'npm'
+      open-pull-requests-limit: 1000
+      pull-request-branch-name:
+          separator: '/'
+      reviewers:
+        - 'elPandaFriki'
+      target-branch: 'master'
+      versioning-strategy: 'auto'
