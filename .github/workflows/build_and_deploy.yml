@@ -1,7 +1,9 @@
 name: Build & Deploy
 on:
     workflow_run:
+        types: [completed]
         workflows: ["Tests", "Code Quality"]
+        branches: [main]
 jobs:
     build:
         runs-on: ubuntu-latest
