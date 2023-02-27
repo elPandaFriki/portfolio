@@ -10,4 +10,4 @@ Check it live [here](https://elpandafriki.github.io/portfolio)
 
 ### Deployment Workflows
 
-[![Tests](https://github.com/elPandaFriki/portfolio/actions/workflows/tests.yml/badge.svg)](https://github.com/elPandaFriki/portfolio/actions/workflows/tests.yml) :arrow_right: [![CI/CD](https://github.com/elPandaFriki/portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/elPandaFriki/portfolio/actions/workflows/deploy.yml)
+[![Tests](https://github.com/elPandaFriki/portfolio/actions/workflows/tests.yml/badge.svg)](https://github.com/elPandaFriki/portfolio/actions/workflows/tests.yml) [![CI/CD](https://github.com/elPandaFriki/portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/elPandaFriki/portfolio/actions/workflows/deploy.yml)
