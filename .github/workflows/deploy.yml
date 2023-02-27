@@ -1,10 +1,10 @@
-name: Build & Deploy
+name: 'Deploy'
 on:
     workflow_run:
-        workflows: [Tests]
+        workflows: ['Tests']
         types:
             - completed
-        branches: [master]
+        branches: ['master']
 jobs:
     on-failure:
         runs-on: ubuntu-latest
