@@ -5,6 +5,7 @@ on:
         types:
             - completed
         branches: ['master']
+permissions: write-all
 jobs:
     on-failure:
         runs-on: ubuntu-latest
@@ -12,40 +13,37 @@ jobs:
         steps:
             - run: echo 'Tests have failed. Can not generate new build.'
     build:
+        name: Build
         runs-on: ubuntu-latest
-        if: ${{ github.event.workflow_run.conclusion == 'success' }}
-        strategy:
-            matrix:
-                node-version: [16.x]
         steps:
-            - name: Start Notification
-              run: echo 'Tests have conclused successfully. Generating new build...'
-            - name: Set repository to latest commit
-              uses: actions/checkout@v3
-            - name: Set up Node.js environment to version ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
+            - name: Checkout repo
+              uses: actions/checkout@v2
+            - name: Setup Node
+              uses: actions/setup-node@v1
               with:
-                  node-version: ${{ matrix.node-version }}
-            - name: Get dependencies from Cache
-              uses: actions/cache@v3
-              with:
-                  path: |
-                      **/node_modules
-                  key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+                node-version: 16
             - name: Install dependencies
-              run: npm install
-            - name: Build React app
+              uses: bahmutov/npm-install@v1
+            - name: Build project
               run: npm run build
+            - name: Upload production-ready build files
+              uses: actions/upload-artifact@v2
+              with:
+                name: production-files
+                path: ./build
+    deploy:
+        name: Deploy
+        needs: build
+        runs-on: ubuntu-latest
+        if: github.ref == 'refs/heads/main'
+        steps:
+            - name: Download artifact
+              uses: actions/download-artifact@v2
+              with:
+                name: production-files
+                path: ./build
             - name: Deploy to GitHub Pages
-              run: |
-                  git config --global user.name ${user_name}
-                  git config --global user.email ${user_email}
-                  git remote set-url origin https://${github_token}@github.com/${repository}
-                  npm run deploy_to_github_pages
-              env:
-                  user_name: 'github-actions[bot]'
-                  user_email: 'github-actions[bot]@users.noreply.github.com'
-                  github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-                  repository: ${{ github.repository }}
-            - name: End Notification
-              run: echo 'Build have concluded successfully.'
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                publish_dir: ./build

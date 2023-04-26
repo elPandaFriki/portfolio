@@ -6,7 +6,7 @@ const config: UserConfig = {
     resolve: {
         extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json', '.d.ts']
     },
-    base: '/',
+    base: '/portfolio/',
     clearScreen: true,
     esbuild: {
         jsxFactory: 'h',
