@@ -66,11 +66,11 @@
     --a1: rotate(var(--start));
     --a2: rotate(calc(-1 * var(--start)));
     --b1: rotate(calc(360deg + var(--start)));
-    --b2: rotate(calc(-1 * (360deg +var(--start))));
+    --b2: rotate(calc(-1 * (360deg + var(--start))));
     &[data-direction='reverse'] {
         --a1: rotate(calc(-1 * var(--start)));
         --a2: rotate(var(--start));
-        --b1: rotate(calc(-1 * (360deg +var(--start))));
+        --b1: rotate(calc(-1 * (360deg + var(--start))));
         --b2: rotate(calc(360deg + var(--start)));
     }
     @-webkit-keyframes #{$name} {

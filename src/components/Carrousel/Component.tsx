@@ -20,7 +20,9 @@ export default class Carrousel extends Component<Props, State> {
         });
     };
 
-    interval = setInterval(() => {}, Number.MAX_SAFE_INTEGER);
+    interval = setInterval(() => {
+        //
+    }, Number.MAX_SAFE_INTEGER);
 
     componentDidMount() {
         const { interval } = this.props;
