@@ -1,4 +1,19 @@
 name: 'Deploy'
+description: 'Upload static files'
+author: 'GitHub'
+inputs:
+    name:
+        description: 'Static'
+        required: false
+        default: 'github-pages'
+    path:
+        description: "Path of the directory containing the static assets."
+        required: true
+        default: "build/"
+    retention-days:
+        description: "Duration after which artifact will expire in days."
+        required: false
+        default: "0"
 on:
     workflow_run:
         workflows: ['Tests']
@@ -34,9 +49,12 @@ jobs:
             - name: Setup Pages
               uses: actions/configure-pages@v3
             - name: Upload artifact
-              uses: actions/upload-pages-artifact@v1
+              uses: actions/upload-artifact@v3
               with:
-                path: './build'
+                name: ${{ inputs.name }}
+                path: ${{ runner.temp }}/*
+                retention-days: ${{ inputs.retention-days }}
+                if-no-files-found: error
             - name: Deploy to GitHub Pages
               id: deployment
               uses: actions/deploy-pages@v2
