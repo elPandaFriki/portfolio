@@ -5,6 +5,7 @@ on:
         types:
             - completed
         branches: ['master']
+permissions: write-all
 jobs:
     on-failure:
         runs-on: ubuntu-latest
