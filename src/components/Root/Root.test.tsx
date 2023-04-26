@@ -1,7 +1,10 @@
-import { render } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { describe, expect, test } from 'vitest';
+import { render, screen } from '@testing-library/react';
 import Root from '.';
 
-test('Loads and displays the web', async () => {
-    render(<Root />);
+describe('Accordion test', () => {
+    test('should show title all the time', () => {
+        render(<Root />);
+        expect(screen.getByText(/David/i)).toBeDefined();
+    });
 });

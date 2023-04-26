@@ -13,6 +13,6 @@ updates:
       pull-request-branch-name:
           separator: '/'
       reviewers:
-        - 'elPandaFriki'
+          - 'elPandaFriki'
       target-branch: 'master'
       versioning-strategy: 'auto'
