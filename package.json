@@ -2,7 +2,7 @@
     "name": "portfolio",
     "version": "4.0.0",
     "date": "26 Apr 2023 21:03",
-    "homepage": "https://elPandaFriki.github.io/portfolio",
+    "homepage": "https://elpandafriki.github.io/portfolio/",
     "private": true,
     "type": "module",
     "eslintConfig": {
