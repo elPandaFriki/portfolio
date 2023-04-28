@@ -1,53 +1,42 @@
-name: 'Deploy'
+name: Deploy static content to Pages
 on:
-    workflow_run:
-        workflows: ['Tests']
-        types:
-            - completed
-        branches: ['master']
-permissions: write-all
+  workflow_run:
+    workflows: ['Tests']
+    types:
+        - completed
+    branches: ['master']
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
 jobs:
-    on-failure:
-        runs-on: ubuntu-latest
-        if: ${{ github.event.workflow_run.conclusion == 'failure' }}
-        steps:
-            - run: echo 'Tests have failed. Can not generate new build.'
-    build:
-        name: Build
-        runs-on: ubuntu-latest
-        if: ${{ github.event.workflow_run.conclusion == 'success' }}
-        strategy:
-            matrix:
-                node-version: [16.x]
-        steps:
-            - name: Start Notification
-              run: echo 'Tests have conclused successfully. Generating new build...'
-            - name: Set repository to latest commit
-              uses: actions/checkout@v3
-            - name: Set up Node.js environment to version ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ matrix.node-version }}
-            - name: Get dependencies from Cache
-              uses: actions/cache@v3
-              with:
-                  path: |
-                      **/node_modules
-                  key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-            - name: Install dependencies
-              run: npm install
-            - name: Build React app
-              run: npm run build
-            - name: Deploy to GitHub Pages
-              run: |
-                  git config --global user.name ${user_name}
-                  git config --global user.email ${user_email}
-                  git remote set-url origin https://${github_token}@github.com/${repository}
-                  npm run deploy
-              env:
-                  user_name: 'github-actions[bot]'
-                  user_email: 'github-actions[bot]@users.noreply.github.com'
-                  github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-                  repository: ${{ github.repository }}
-            - name: End Notification
-              run: echo 'Build have concluded successfully.'
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: './build'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
