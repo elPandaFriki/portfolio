@@ -30,7 +30,7 @@
         "exec_commit_version": "ts-node --project ./scripts/tsconfig.json ./scripts/commit_version.ts",
         "update-version": "npm run fix_version && npm run exec_commit_version",
         "analyze": "source-map-explorer 'build/static/js/*.js'",
-        "deploy_to_github_pages": "gh-pages -d build",
+        "deploy": "gh-pages -d build",
         "format": " ts-node --project ./scripts/tsconfig.json ./scripts/format.ts",
         "test": "vitest"
     },
