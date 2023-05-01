@@ -4,7 +4,7 @@ on:
     workflows: ['Tests']
     types:
         - completed
-    branches: ['master']
+    branches: ['production']
   workflow_dispatch:
 permissions:
   contents: read
