@@ -71,6 +71,6 @@
         "webdriverio": "^8.10.7"
     },
     "devDependencies": {
-        "@vitest/coverage-c8": "^0.31.4"
+        "@vitest/coverage-c8": "^0.32.0"
     }
 }
