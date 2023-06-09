@@ -68,7 +68,7 @@
         "vite": "^4.3.9",
         "vite-plugin-checker": "^0.6.0",
         "vitest": "^0.32.0",
-        "webdriverio": "^8.10.7"
+        "webdriverio": "^8.11.1"
     },
     "devDependencies": {
         "@vitest/coverage-c8": "^0.32.0"
