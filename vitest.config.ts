@@ -1,11 +1,11 @@
 /// <reference types="vitest" />
 
-import { defineProject, mergeConfig } from 'vitest/config';
+import { mergeConfig } from 'vitest/config';
 import shared from './vite.shared';
 
 export default mergeConfig(
     shared,
-    defineProject({
+    {
         test: {
             dom: true,
             typecheck: {
@@ -16,5 +16,5 @@ export default mergeConfig(
             setupFiles: ['./src/setupTests.ts'],
             environment: 'happy-dom'
         }
-    })
+    }
 );
