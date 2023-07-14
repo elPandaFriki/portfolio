@@ -54,7 +54,7 @@
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-refresh": "^0.4.3",
         "gh-pages": "^5.0.0",
-        "happy-dom": "^10.1.1",
+        "happy-dom": "^10.3.2",
         "jsdom": "^22.1.0",
         "prettier": "^3.0.0",
         "react": "^18.2.0",
