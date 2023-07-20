@@ -62,7 +62,7 @@
         "react-icons": "^4.10.1",
         "react-redux": "^8.1.1",
         "redux-logger": "^3.0.6",
-        "sass": "^1.63.6",
+        "sass": "^1.64.0",
         "ts-node": "^10.9.1",
         "typescript": "^5.1.6",
         "vite": "^4.4.4",
