@@ -17,6 +17,9 @@ const config: UserConfig = {
     plugins: [
         react({}),
         checker({
+            eslint: {
+                lintCommand: 'eslint "./src/**/*.{ts,tsx}"'
+            },
             typescript: true
         })
     ],
@@ -43,7 +46,7 @@ const config: UserConfig = {
                 ['html']
             ],
             reportsDirectory: 'coverage',
-            provider: 'c8',
+            provider: 'v8',
             enabled: true,
             clean: true,
             cleanOnRerun: true

@@ -1,26 +1,25 @@
 import { IconType } from 'react-icons/lib';
 import { connector } from '.';
+import { ConnectedProps } from 'react-redux';
 
-export interface OwnProps {
+export type OwnProps = {
     //
 }
 
-export interface Props extends OwnProps, ConnectedProps<typeof connector> {
-    //
-}
+export type Props =  OwnProps& ConnectedProps<typeof connector>;
 
-export interface Icon {
+export type Icon=  {
     radius: number;
     Icon: IconType;
     name: string;
     category: string;
 }
 
-export interface State {
+export type State = {
     //
 }
 
-export interface IconElement {
+export type IconElement = {
     name: string;
     Icon: IconType;
 }

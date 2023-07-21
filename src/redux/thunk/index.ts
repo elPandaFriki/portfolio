@@ -6,6 +6,6 @@ export const updateExample = createAsyncThunk<
     {
         state: Redux.Store;
     }
->('updateExample', async (payload, thunkApi) => {
+>('updateExample', async () => {
     //
 });
