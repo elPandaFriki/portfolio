@@ -20,21 +20,19 @@ export default class Carrousel extends Component<Props, State> {
         });
     };
 
-    interval = setInterval(() => {
-        //
-    }, Number.MAX_SAFE_INTEGER);
+    interval: NodeJS.Timer | null = null;
 
     componentDidMount() {
         const { interval } = this.props;
         this.generateIcon();
-        clearInterval(this.interval);
+        if (this.interval != null) clearInterval(this.interval);
         this.interval = setInterval(() => {
             this.generateIcon();
         }, interval || 1000);
     }
 
     componentWillUnmount() {
-        clearInterval(this.interval);
+        if (this.interval != null) clearInterval(this.interval);
     }
 
     render() {

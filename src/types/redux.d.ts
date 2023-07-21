@@ -1,11 +1,13 @@
+export {};
+
 import { store } from '../redux';
 
-export declare global {
+declare global {
     namespace Redux {
         type Store = ReturnType<typeof store.getState>;
         type Dispatch = typeof store.dispatch;
         namespace Action {
-            interface UpdateExample {
+            type UpdateExample = {
                 value: number;
             }
         }
@@ -17,7 +19,7 @@ export declare global {
         }
 
         namespace Reducer {
-            interface Example {
+            type Example = {
                 value: number;
             }
         }
