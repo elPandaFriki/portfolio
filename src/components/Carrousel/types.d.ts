@@ -1,16 +1,16 @@
 import { ReactNode } from 'react';
 
-export interface State {
+export type State = {
     name: string;
     Element: ReactNode;
 }
 
-export interface Props {
+export type Props=  {
     interval?: number;
     elements: Array<CarrouselElement>;
 }
 
-export interface CarrouselElement {
+export type CarrouselElement = {
     name: string;
     Element: ReactNode;
 }

@@ -1,7 +1,7 @@
 {
     "name": "portfolio",
-    "version": "4.0.5",
-    "date": "03 Jun 2023 22:15",
+    "version": "4.0.6",
+    "date": "21 Jul 2023 21:45",
     "homepage": "https://elpandafriki.github.io/portfolio/",
     "private": true,
     "type": "module",
@@ -49,6 +49,7 @@
         "@vitejs/plugin-react-swc": "^3.3.2",
         "@vitest/browser": "^0.33.0",
         "@vitest/coverage-istanbul": "^0.33.0",
+        "@vitest/coverage-v8": "^0.33.0",
         "@vitest/ui": "^0.33.0",
         "eslint": "^8.45.0",
         "eslint-plugin-react-hooks": "^4.6.0",
@@ -63,14 +64,12 @@
         "react-redux": "^8.1.1",
         "redux-logger": "^3.0.6",
         "sass": "^1.64.0",
+        "stylelint": "^15.10.2",
         "ts-node": "^10.9.1",
         "typescript": "^5.1.6",
         "vite": "^4.4.5",
         "vite-plugin-checker": "^0.6.1",
         "vitest": "^0.33.0",
         "webdriverio": "^8.13.4"
-    },
-    "devDependencies": {
-        "@vitest/coverage-c8": "^0.33.0"
     }
 }

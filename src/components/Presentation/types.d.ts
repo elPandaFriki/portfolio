@@ -1,21 +1,19 @@
 import { ConnectedProps } from 'react-redux';
 import { connector, Categories } from '.';
 
-export interface OwnProps {
+export type OwnProps=  {
     //
 }
 
-export interface Props extends OwnProps, ConnectedProps<typeof connector> {
-    //
-}
+export type Props =  OwnProps & ConnectedProps<typeof connector>;
 
-export interface Icon {
+export type Icon=  {
     radius: number;
     Icon: JSX.Element;
     name: string;
     category: Categories;
 }
 
-export interface State {
+export type State = {
     icons: Array<Icon>;
 }

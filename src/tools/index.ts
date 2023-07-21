@@ -1,1 +1,2 @@
-export * from './deepCompare';
+export * from './methods';
+export * from './prototypes';

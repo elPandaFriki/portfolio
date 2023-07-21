@@ -4,8 +4,9 @@ import App from '../App';
 import { store } from '../../redux';
 import { Provider } from 'react-redux';
 import Version from '../Version';
+import { Props, State } from './types';
 
-export default class Root extends Component<{}, {}> {
+export default class Root extends Component<Props, State> {
     render() {
         return (
             <StrictMode>
