@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { Props, State } from './types';
+import styles from './styles.module.scss';
 
 export default class Carrousel extends Component<Props, State> {
     state: State = {
@@ -20,7 +21,7 @@ export default class Carrousel extends Component<Props, State> {
         });
     };
 
-    interval: NodeJS.Timer | null = null;
+    interval: ReturnType<typeof setInterval> | null = null;
 
     componentDidMount() {
         const { interval } = this.props;
@@ -36,7 +37,18 @@ export default class Carrousel extends Component<Props, State> {
     }
 
     render() {
+        const { onElementClick } = this.props;
         const { Element, name } = this.state;
-        return <div id={name}>{Element}</div>;
+        return (
+            <div
+                id={name}
+                className={styles.root}
+                onClick={() => {
+                    onElementClick(name);
+                }}
+            >
+                {Element}
+            </div>
+        );
     }
 }

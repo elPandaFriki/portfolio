@@ -42,122 +42,122 @@ export default class App extends Component<Props, State> {
     getLanguagesIcons = (): Array<CarrouselElement> => [
         {
             name: 'html',
-            Element: <SiHtml5 className={styles.icon} />
+            Element: <SiHtml5 />
         },
         {
             name: 'css3',
-            Element: <SiCss3 className={styles.icon} />
+            Element: <SiCss3 />
         },
         {
             name: 'javascript',
-            Element: <SiJavascript className={styles.icon} />
+            Element: <SiJavascript />
         },
         {
             name: 'typescript',
-            Element: <SiTypescript className={styles.icon} />
+            Element: <SiTypescript />
         },
         {
             name: 'python',
-            Element: <SiPython className={styles.icon} />
+            Element: <SiPython />
         },
         {
             name: 'cplusplus',
-            Element: <SiCplusplus className={styles.icon} />
+            Element: <SiCplusplus />
         },
         {
             name: 'csharp',
-            Element: <SiCsharp className={styles.icon} />
+            Element: <SiCsharp />
         }
     ];
 
     getFrontEndIcons = (): Array<CarrouselElement> => [
         {
             name: 'react',
-            Element: <SiReact className={styles.icon} />
+            Element: <SiReact />
         },
         {
             name: 'vuejs',
-            Element: <SiVuedotjs className={styles.icon} />
+            Element: <SiVuedotjs />
         },
         {
             name: 'angular',
-            Element: <SiAngular className={styles.icon} />
+            Element: <SiAngular />
         },
         {
             name: 'sass',
-            Element: <SiSass className={styles.icon} />
+            Element: <SiSass />
         }
     ];
 
     getBackEndIcons = (): Array<CarrouselElement> => [
         {
             name: 'nodejs',
-            Element: <SiNodedotjs className={styles.icon} />
+            Element: <SiNodedotjs />
         },
         {
             name: 'express',
-            Element: <SiExpress className={styles.icon} />
+            Element: <SiExpress />
         },
         {
             name: 'django',
-            Element: <SiDjango className={styles.icon} />
+            Element: <SiDjango />
         },
         {
             name: 'flask',
-            Element: <SiFlask className={styles.icon} />
+            Element: <SiFlask />
         }
     ];
 
     getCommunicationsIcons = (): Array<CarrouselElement> => [
         {
             name: 'socketio',
-            Element: <SiSocketdotio className={styles.icon} />
+            Element: <SiSocketdotio />
         },
         {
             name: 'graphql',
-            Element: <SiGraphql className={styles.icon} />
+            Element: <SiGraphql />
         }
     ];
 
     getDatabasesIcons = (): Array<CarrouselElement> => [
         {
             name: 'mysql',
-            Element: <SiMysql className={styles.icon} />
+            Element: <SiMysql />
         },
         {
             name: 'mongodb',
-            Element: <SiMongodb className={styles.icon} />
+            Element: <SiMongodb />
         },
         {
             name: 'sqlite',
-            Element: <SiSqlite className={styles.icon} />
+            Element: <SiSqlite />
         },
         {
             name: 'postgresql',
-            Element: <SiPostgresql className={styles.icon} />
+            Element: <SiPostgresql />
         },
         {
             name: 'mariadb',
-            Element: <SiMariadb className={styles.icon} />
+            Element: <SiMariadb />
         },
         {
             name: 'sqlserver',
-            Element: <SiMicrosoftsqlserver className={styles.icon} />
+            Element: <SiMicrosoftsqlserver />
         }
     ];
 
     getDeploymentIcons = (): Array<CarrouselElement> => [
         {
             name: 'github',
-            Element: <SiGithub className={styles.icon} />
+            Element: <SiGithub />
         },
         {
             name: 'docker',
-            Element: <SiDocker className={styles.icon} />
+            Element: <SiDocker />
         },
         {
             name: 'aws',
-            Element: <SiAmazonaws className={styles.icon} />
+            Element: <SiAmazonaws />
         }
     ];
 
@@ -184,6 +184,47 @@ export default class App extends Component<Props, State> {
         }
     };
 
+    scrollTo = (category: string, element: string) => {
+        const htmlElement = document.getElementById(category);
+        if (htmlElement == null) return;
+        const position = htmlElement.getBoundingClientRect();
+        console.log(element);
+        window.scrollTo({
+            behavior: 'smooth',
+            top: position.top,
+            left: 0
+        });
+    };
+
+    onCategoryClick = (category: Categories, element: string) => {
+        switch (category) {
+            case Categories.LANGUAGES: {
+                this.scrollTo('languages', element);
+                return;
+            }
+            case Categories.FRONTEND: {
+                this.scrollTo('frontend', element);
+                return;
+            }
+            case Categories.BACKEND: {
+                this.scrollTo('backend', element);
+                return;
+            }
+            case Categories.DATABASES: {
+                this.scrollTo('databases', element);
+                return;
+            }
+            case Categories.DEPLOYMENT: {
+                this.scrollTo('deployment', element);
+                return;
+            }
+            case Categories.COMMUNICATIONS: {
+                this.scrollTo('communications', element);
+                return;
+            }
+        }
+    };
+
     render() {
         const categories = Object.values(Categories).filter(
             o => typeof o !== 'string'
@@ -201,12 +242,17 @@ export default class App extends Component<Props, State> {
                                 data-speed={index}
                             />
                             <div
-                                className={styles.message}
+                                className={styles.carrousel}
                                 data-radius={radius}
                                 data-speed={speed}
                                 data-direction={index % 2 === 0 ? 'normal' : 'reverse'}
                             >
-                                <Carrousel elements={this.getIcons(category)} />
+                                <Carrousel
+                                    elements={this.getIcons(category)}
+                                    onElementClick={element => {
+                                        this.onCategoryClick(category, element);
+                                    }}
+                                />
                             </div>
                         </div>
                     );

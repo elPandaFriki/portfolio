@@ -11,9 +11,17 @@ export default class App extends Component<Props, State> {
     render() {
         return (
             <div className={styles.root}>
-                <div className={styles.presentation}>
+                <div className={styles.presentation} id={'home'}>
                     <Presentation />
                 </div>
+                {/*
+                <div className={styles.presentation} id={'languages'}></div>
+                <div className={styles.presentation} id={'frontend'}></div>
+                <div className={styles.presentation} id={'backend'}></div>
+                <div className={styles.presentation} id={'databases'}></div>
+                <div className={styles.presentation} id={'deployment'}></div>
+                <div className={styles.presentation} id={'communications'}></div>
+                 */}
             </div>
         );
     }

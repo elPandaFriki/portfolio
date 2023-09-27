@@ -6,6 +6,7 @@ export type State = {
 }
 
 export type Props=  {
+    onElementClick(element: CarrouselElement['name']): void;
     interval?: number;
     elements: Array<CarrouselElement>;
 }

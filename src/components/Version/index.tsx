@@ -8,12 +8,12 @@ export default class Version extends Component<Props, State> {
         const { children } = this.props;
         return (
             <div className={styles.root}>
-                <div className={styles.children}>{children}</div>
                 <div className={styles.version}>
                     <div className={styles.message}>
                         {packageJson.version} @ {packageJson.date}
                     </div>
                 </div>
+                <div className={styles.children}>{children}</div>
             </div>
         );
     }
