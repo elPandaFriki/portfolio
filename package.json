@@ -70,6 +70,6 @@
         "vite": "^5.0.3",
         "vite-plugin-checker": "^0.6.2",
         "vitest": "^0.34.6",
-        "webdriverio": "^8.24.3"
+        "webdriverio": "^8.24.5"
     }
 }
