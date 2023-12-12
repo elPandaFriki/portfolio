@@ -64,7 +64,7 @@
         "react-redux": "^9.0.4",
         "redux-logger": "^3.0.6",
         "sass": "^1.69.5",
-        "stylelint": "^16.0.1",
+        "stylelint": "^16.0.2",
         "ts-node": "^10.9.2",
         "typescript": "^5.3.3",
         "vite": "^5.0.7",
