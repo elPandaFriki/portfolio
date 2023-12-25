@@ -3,8 +3,8 @@
         "target": "ESNext",
         "lib": ["DOM", "DOM.Iterable", "ESNext"],
         "module": "ESNext",
-        "skipLibCheck": true, // this causes .d.ts files to not have type check
-        "allowJs": true,
+        "skipLibCheck": false, // If true causes .d.ts files to not have type check
+        "allowJs": false,
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
 
@@ -18,16 +18,28 @@
 
         /* Linting */
         "strict": true,
+        "noImplicitAny": false,
         "noUnusedLocals": false,
         "noUnusedParameters": false,
         "noFallthroughCasesInSwitch": true,
         "forceConsistentCasingInFileNames": true,
         "useDefineForClassFields": true,
 
+        /* Paths*/
+        "baseUrl": ".",
+        "paths": {
+            "resources/*": ["src/resources/*"],
+            "proto": ["src/proto/index.ts"],
+            "proto/*": ["src/proto/*"],
+            "enums": ["src/enums/index.ts"],
+            "enums/*": ["src/enums/*"]
+        },
+
         /* Type overrides */
-        "types": ["vite/client", "./src/react-env.d.ts", "vitest"]
+        "types": ["vite/client", "./react-env.d.ts", "vitest"]
     },
     "include": ["*", "src"],
+    "exclude": ["node_modules", "dist", "build", "scripts"],
     "references": [
         {
             "path": "./tsconfig.node.json"

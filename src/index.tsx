@@ -1,7 +1,7 @@
 import './index.scss';
 import Root from './components/Root';
 import { createRoot } from 'react-dom/client';
-import { setPrototypes } from './tools';
+import { setPrototypes } from './prototypes';
 
 function setHotReload() {
     if (!import.meta.hot) return;
