@@ -1,29 +1,41 @@
 import react from '@vitejs/plugin-react-swc';
 import checker from 'vite-plugin-checker';
 import { UserConfig } from 'vite';
-import pkg from './package.json'
+import fullReload from 'vite-plugin-full-reload';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 const config: UserConfig = {
     resolve: {
         extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json', '.d.ts']
     },
-    base: pkg.homepage,
+    // clear screen is needed for styles to be reloaded properly
     clearScreen: true,
+    base: './',
     esbuild: {
         jsxFactory: 'h',
         jsxFragment: 'Fragment',
         jsxInject: `import React from 'react'`
     },
+    define: {
+        global: {}
+    },
     plugins: [
+        tsconfigPaths(),
         react({}),
         checker({
             eslint: {
                 lintCommand: 'eslint "./src/**/*.{ts,tsx}"'
             },
             typescript: true
+        }),
+        fullReload('./**/*', {
+            root: __dirname,
+            delay: 0,
+            always: true
         })
     ],
     server: {
+        host: true,
         hmr: {
             overlay: false
         },
