@@ -1,5 +1,5 @@
-import { ConnectedProps } from 'react-redux';
-import { connector, Categories } from '.';
+import type { ConnectedProps } from 'react-redux';
+import type { connector, Categories } from '.';
 
 export type OwnProps=  {
     //

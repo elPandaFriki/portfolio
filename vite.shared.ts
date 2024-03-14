@@ -45,6 +45,9 @@ const config: UserConfig = {
     },
     test: {
         globals: true,
+        environment: 'jsdom',
+        setupFiles: "src/setupTests.ts",
+        mockReset: true,
         passWithNoTests: true,
         watch: false,
         coverage: {

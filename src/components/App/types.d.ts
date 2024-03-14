@@ -1,6 +1,6 @@
-import { IconType } from 'react-icons/lib';
-import { connector } from '.';
-import { ConnectedProps } from 'react-redux';
+import type { IconType } from 'react-icons/lib';
+import type { connector } from '.';
+import type { ConnectedProps } from 'react-redux';
 
 export type OwnProps = {
     //
