@@ -1,6 +1,6 @@
 export {};
 
-import { store } from '../redux';
+import type { store } from '../redux';
 
 declare global {
     namespace Redux {

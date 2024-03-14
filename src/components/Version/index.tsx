@@ -1,7 +1,7 @@
 import packageJson from '../../../package.json';
 import styles from './styles.module.scss';
 import { Component } from 'react';
-import { Props, State } from './types';
+import type { Props, State } from './types';
 
 export default class Version extends Component<Props, State> {
     render() {

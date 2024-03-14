@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import styles from './styles.module.scss';
-import { Props, State, Icon } from './types';
+import type { Props, State, Icon } from './types';
 import { Categories } from '.';
 import {
     SiAmazonaws,
@@ -30,7 +30,8 @@ import {
     SiTypescript,
     SiVuedotjs
 } from 'react-icons/si';
-import Carrousel, { CarrouselElement } from '../Carrousel';
+import Carrousel from '../Carrousel';
+import type { CarrouselElement } from '../Carrousel';
 
 export default class App extends Component<Props, State> {
     icons: Array<Icon> = [];

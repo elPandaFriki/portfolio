@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Props, State } from './types';
+import type { Props, State } from './types';
 import styles from './styles.module.scss';
 
 export default class Carrousel extends Component<Props, State> {

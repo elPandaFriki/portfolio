@@ -1,4 +1,5 @@
-import { configureStore, Middleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
+import type { Middleware } from '@reduxjs/toolkit';
 import reducers from './reducers';
 import logger from 'redux-logger';
 
