@@ -68,7 +68,7 @@
         "stylelint": "^16.8.2",
         "ts-node": "^10.9.2",
         "typescript": "^5.5.4",
-        "vite": "^5.4.1",
+        "vite": "^5.4.2",
         "vite-plugin-checker": "^0.7.2",
         "vite-plugin-full-reload": "^1.2.0",
         "vite-tsconfig-paths": "^5.0.1",
