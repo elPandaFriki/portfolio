@@ -22,11 +22,6 @@ updates:
       # enable-beta-ecosystems: true
       groups:
           dev-deps:
-              dependency-type: 'development'
-              patterns:
-                  - '*'
-          prod-deps:
-              dependency-type: 'production'
               patterns:
                   - '*'
       # ignore:
