@@ -14,5 +14,13 @@ updates:
           separator: '/'
       reviewers:
           - 'elPandaFriki'
+      labels:
+          - 'npm'
+          - 'dependencies'
       target-branch: 'master'
+      rebase-strategy: 'auto'
       versioning-strategy: 'auto'
+      groups:
+          dependencies:
+              patterns:
+                  - '*'
