@@ -3,7 +3,6 @@ import reactRefresh from 'react-refresh'
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint'
 import globals from 'globals'
-import typescriptParser from '@typescript-eslint/parser'
 
 export default [
     ...tseslint.config(
@@ -11,6 +10,11 @@ export default [
       ...tseslint.configs.recommended,
     );
     {
+        languageOptions: {
+            parserOptions: {
+                tsconfigRootDir: "./",
+            }
+        },
         rules: {
             "typescript-eslint/consistent-type-imports": [
                 2,
@@ -62,10 +66,8 @@ export default [
             "scripts"
         ],
         languageOptions: {
-            parser: typescriptParser,
             parserOptions: {
                 project: true,
-                tsconfigRootDir: "./",
                 ecmaVersion: "latest",
                 sourceType: "module",
                 ecmaFeatures: {
