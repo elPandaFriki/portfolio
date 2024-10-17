@@ -11,6 +11,32 @@ export default [
       ...tseslint.configs.recommended,
     );
     {
+        rules: {
+            "typescript-eslint/consistent-type-imports": [
+                2,
+                {
+                    fixStyle: "separate-type-imports"
+                }
+            ],
+            "typescript-eslint/no-restricted-imports": [
+                2,
+                {
+                    paths: [
+                        {
+                            name: "react-redux",
+                            importNames: [
+                                "useSelector",
+                                "useStore",
+                                "useDispatch"
+                            ],
+                            message: "Please use pre-typed versions from `src/app/hooks.ts` instead."
+                        }
+                    ]
+                }
+            ]
+        },
+    },
+    {
         files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
         ...reactPlugin.configs.flat.recommended,
     },
@@ -48,32 +74,7 @@ export default [
             }
         },
         plugins: {
-            reactRefresh,
-            typescriptEslint
-        },
-        rules: {
-            "typescriptEslint/consistent-type-imports": [
-                2,
-                {
-                    fixStyle: "separate-type-imports"
-                }
-            ],
-            "typescriptEslint/no-restricted-imports": [
-                2,
-                {
-                    paths: [
-                        {
-                            name: "react-redux",
-                            importNames: [
-                                "useSelector",
-                                "useStore",
-                                "useDispatch"
-                            ],
-                            message: "Please use pre-typed versions from `src/app/hooks.ts` instead."
-                        }
-                    ]
-                }
-            ]
+            reactRefresh
         },
         overrides: [
             {
