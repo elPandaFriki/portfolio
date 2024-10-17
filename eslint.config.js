@@ -1,12 +1,21 @@
 import react from 'eslint-plugin-react'
 import reactRefresh from 'react-refresh'
-import typescriptEslint from '@typescript/eslint'
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint'
 import globals from 'globals'
 import typescriptParser from '@typescript-eslint/parser'
 
 export default [
+    ...tseslint.config(
+      eslint.configs.recommended,
+      ...tseslint.configs.recommended,
+    );
     {
-        files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
+        files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
+        ...reactPlugin.configs.flat.recommended,
+    },
+    {
+        files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
         globals: {
             ...globals.browser,
             ...globals.node,
@@ -39,7 +48,6 @@ export default [
             }
         },
         plugins: {
-            react,
             reactRefresh,
             typescriptEslint
         },
