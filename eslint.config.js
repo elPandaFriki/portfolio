@@ -9,7 +9,8 @@ export default [
         files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
         globals: {
             ...globals.browser,
-            ...globals.node
+            ...globals.node,
+            ...globals.serviceworker
         },
         extends: [
             "eslint:recommended",
