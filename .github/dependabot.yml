@@ -24,8 +24,8 @@ updates:
           dev-deps:
               patterns:
                   - '*'
-      # ignore:
-      #   - dependency-name: ''
+      ignore:
+         - dependency-name: 'eslint'
       #     versions: ['']
       #     update-types: ['']
       # insecure-external-code-execution: allow
