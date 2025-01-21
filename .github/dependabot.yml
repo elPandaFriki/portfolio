@@ -3,16 +3,43 @@
 
 version: 2
 updates:
-    - package-ecosystem: 'npm' # See documentation for possible values
-      directory: '/' # Location of package manifests
+    - package-ecosystem: 'npm'
+      #directory: '/'
+      directories:
+          - '/'
       schedule:
           interval: 'daily'
+      #   day: ''
+          time: '08:00'
+          timezone: 'Europe/Madrid'
+      # allow:
+      #   - dependency-name: ''
+      #   - dependency-type: ''
+      assignees:
+          - 'elPandaFriki'
       commit-message:
           prefix: 'npm'
+      # enable-beta-ecosystems: true
+      groups:
+          dev-deps:
+              patterns:
+                  - '*'
+      ignore:
+         - dependency-name: 'eslint'
+      #     versions: ['']
+      #     update-types: ['']
+      # insecure-external-code-execution: allow
+      labels:
+          - 'npm'
+          - 'dependencies'
+      # milestone: ''
       open-pull-requests-limit: 1000
       pull-request-branch-name:
           separator: '/'
+      rebase-strategy: 'auto'
+      # registries: '*'
       reviewers:
           - 'elPandaFriki'
       target-branch: 'master'
+      # vendor: true
       versioning-strategy: 'auto'
