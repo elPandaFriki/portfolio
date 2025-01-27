@@ -32,7 +32,7 @@
         "test": "vitest"
     },
     "dependencies": {
-        "@reduxjs/toolkit": "^2.5.0",
+        "@reduxjs/toolkit": "^2.5.1",
         "@testing-library/jest-dom": "^6.6.3",
         "@testing-library/react": "^16.2.0",
         "@testing-library/user-event": "^14.6.1",
@@ -56,7 +56,7 @@
         "eslint-plugin-react-hooks": "^5.1.0",
         "eslint-plugin-react-refresh": "^0.4.18",
         "gh-pages": "^6.3.0",
-        "happy-dom": "^16.7.2",
+        "happy-dom": "^16.7.3",
         "jsdom": "^26.0.0",
         "prettier": "^3.4.2",
         "react": "^19.0.0",
@@ -65,7 +65,7 @@
         "react-redux": "^9.2.0",
         "redux-logger": "^3.0.6",
         "sass": "^1.83.4",
-        "stylelint": "^16.13.2",
+        "stylelint": "^16.14.0",
         "ts-node": "^10.9.2",
         "typescript": "^5.7.3",
         "vite": "^6.0.11",
@@ -73,6 +73,6 @@
         "vite-plugin-full-reload": "^1.2.0",
         "vite-tsconfig-paths": "^5.1.4",
         "vitest": "^3.0.1",
-        "webdriverio": "^9.6.3"
+        "webdriverio": "^9.7.1"
     }
 }
