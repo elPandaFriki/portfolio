@@ -73,6 +73,6 @@
         "vite-plugin-full-reload": "^1.2.0",
         "vite-tsconfig-paths": "^5.1.4",
         "vitest": "^3.0.1",
-        "webdriverio": "^9.7.1"
+        "webdriverio": "^9.7.2"
     }
 }
