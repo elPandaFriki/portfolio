@@ -1,6 +1,6 @@
 import react from '@vitejs/plugin-react-swc';
 import checker from 'vite-plugin-checker';
-import { UserConfig } from 'vite';
+import { type UserConfig } from 'vite';
 import fullReload from 'vite-plugin-full-reload';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
@@ -46,7 +46,7 @@ const config: UserConfig = {
     test: {
         globals: true,
         environment: 'jsdom',
-        setupFiles: "src/setupTests.ts",
+        setupFiles: 'src/setupTests.ts',
         mockReset: true,
         passWithNoTests: true,
         watch: false,

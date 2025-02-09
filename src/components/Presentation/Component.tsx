@@ -3,10 +3,8 @@ import styles from './styles.module.scss';
 import type { Props, State, Icon } from './types';
 import { Categories } from '.';
 import {
-    SiAmazonaws,
     SiAngular,
     SiCplusplus,
-    SiCsharp,
     SiCss3,
     SiDjango,
     SiDocker,
@@ -17,7 +15,6 @@ import {
     SiHtml5,
     SiJavascript,
     SiMariadb,
-    SiMicrosoftsqlserver,
     SiMongodb,
     SiMysql,
     SiNodedotjs,
@@ -30,6 +27,9 @@ import {
     SiTypescript,
     SiVuedotjs
 } from 'react-icons/si';
+import { BiLogoAws } from 'react-icons/bi';
+import { TbBrandCSharp } from 'react-icons/tb';
+import { DiMsqlServer } from 'react-icons/di';
 import Carrousel from '../Carrousel';
 import type { CarrouselElement } from '../Carrousel';
 
@@ -67,7 +67,7 @@ export default class App extends Component<Props, State> {
         },
         {
             name: 'csharp',
-            Element: <SiCsharp />
+            Element: <TbBrandCSharp />
         }
     ];
 
@@ -143,7 +143,7 @@ export default class App extends Component<Props, State> {
         },
         {
             name: 'sqlserver',
-            Element: <SiMicrosoftsqlserver />
+            Element: <DiMsqlServer />
         }
     ];
 
@@ -158,7 +158,7 @@ export default class App extends Component<Props, State> {
         },
         {
             name: 'aws',
-            Element: <SiAmazonaws />
+            Element: <BiLogoAws />
         }
     ];
 
