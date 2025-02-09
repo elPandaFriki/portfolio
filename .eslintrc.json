@@ -14,13 +14,17 @@
     "ignorePatterns": ["node_modules", "dist", "build", "scripts"],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "project": true,
-        "tsconfigRootDir": "./",
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
     "plugins": ["react", "react-refresh", "@typescript-eslint"],
     "rules": {
+        "@typescript-eslint/no-empty-object-type": [
+            2,
+            {
+                "allowObjectTypes": "always"
+            }
+        ],
         "@typescript-eslint/consistent-type-imports": [
             2,
             {
