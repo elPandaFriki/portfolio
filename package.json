@@ -68,11 +68,11 @@
         "stylelint": "^16.17.0",
         "ts-node": "^10.9.2",
         "typescript": "^5.8.2",
-        "vite": "^6.2.4",
+        "vite": "^6.2.5",
         "vite-plugin-checker": "^0.9.1",
         "vite-plugin-full-reload": "^1.2.0",
         "vite-tsconfig-paths": "^5.1.4",
         "vitest": "^3.0.1",
-        "webdriverio": "^9.12.2"
+        "webdriverio": "^9.12.3"
     }
 }
